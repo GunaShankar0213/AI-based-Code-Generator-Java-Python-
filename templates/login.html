@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text-to-Code AI Login Form</title>
+	<link rel="stylesheet" href="/static/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="icon-overlay">
+		<img src="/static/Images/icon.jpeg" alt="Icon Image">
+	</div>
+
+	<h2>AstroCoder AI</h2>
+
+	<div class="container" id="container">
+<!-- Sign Up Form -->
+		<div class="form-container sign-up-container">
+    <form method="post" action="/">
+        <h1>Create Account</h1>
+
+        <input type="text" name="name" placeholder="Name" /> <!-- Add 'name' attribute -->
+        <input type="email" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit">Sign Up</button>
+    </form>
+		</div>
+
+<!-- Sign In Form -->
+<div class="form-container sign-in-container">
+    <form method="post" action="/login"> <!-- Updated action to '/login' -->
+        <h1>Sign in</h1>
+
+        <input type="email" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+    </form>
+</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal info</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start the journey with us</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>
+    Welcome to coding life, with our cutting-edge AI model that effortlessly generates function after function, unleashing the true potential of seamless and intelligent coding! <i class="fa fa-rocket"></i> Created with <i class="fa fa-heart"></i> by
+    <a target="_blank" href="https://florin-pop.com">Guna Shankar</a><br>
+    - Read how I created this and how you can join the challenge
+    <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+		</p>
+	</footer>
+
+	<script>
+		const signUpButton = document.getElementById('signUp');
+		const signInButton = document.getElementById('signIn');
+		const container = document.getElementById('container');
+
+		signUpButton.addEventListener('click', () => {
+			container.classList.add("right-panel-active");
+		});
+
+		signInButton.addEventListener('click', () => {
+			container.classList.remove("right-panel-active");
+		});
+
+		 {% if error %}
+
+        alert("{{ error }}");
+
+    {% endif %}
+
+
+	</script>
+</body>
+</html>
