@@ -59,6 +59,29 @@ This demo showcases AstroCoder's ability to **generate, optimize, and fix** code
 - 
 ![image](https://github.com/user-attachments/assets/0402958d-bea9-4716-8054-593617b5ba3e)
 
+🔹 Preprocessing Enhancements
+Custom Tokenization – Prefixed Java code with "Translate Java to Python: " for better task recognition.
+Padding Handling – Replaced padding tokens with -100 to prevent loss function bias.
+Dataset Sampling & Splitting – Used 40% sampled training data and 80-20 train-test split for efficiency.
+Tokenizer Optimization – Used RobertaTokenizer instead of default T5 tokenizer for better code processing.
+Efficient Data Processing – Converted datasets to TensorFlow format with optimized batching & prefetching (tf.data.AUTOTUNE).
+Multi-GPU & XLA Support – Enabled XLA optimization, MirroredStrategy, and auto-sharding off for distributed training.
+Custom Logging & Progress Bar – Added ETA tracking and learning rate adjustments per step.
+
+🔹 Fine-Tuning Enhancements
+Hyperparameter Updates:
+
+Learning Rate: 3e-4 (faster convergence)
+Weight Decay: 1e-4 (regularization)
+Warmup Ratio: 0.2 (gradual learning rate increase)
+Batch Size: 6 (optimized for GPU efficiency)
+Max Sequence Length: 300 (handles longer code snippets)
+Epochs: 8 (better convergence)
+CodeT5 Model – Used TFT5ForConditionalGeneration (CodeT5) for improved Java-to-Python translation.
+
+Custom Learning Rate Scheduler – Applied warmup and gradient scaling for stable training.
+
+Multi-GPU & Performance Boost – XLA acceleration, MirroredStrategy, and data pipeline auto-tuning for faster execution.
 ### **Additional Project: AI Healthcare Chatbot**
 
 In addition to **AstroCoder**, this project also includes an **AI-powered Healthcare Chatbot**. Using **NLP and Transformer-based models**, the chatbot can diagnose potential diseases based on **user symptoms**, providing insights and medical guidance. The chatbot leverages **LLM (Large Language Models) and LangChain** to deliver intelligent responses for medical queries.
